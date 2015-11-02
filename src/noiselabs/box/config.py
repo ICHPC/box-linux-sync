@@ -73,7 +73,8 @@ class BoxConfig(object):
 
     def write_default_config(self, filepath):
         import os
-        username = os.getlogin()
+        import pwd
+        username = pwd.getpwuid( os.getuid() )[ 0 ]
         data = "; " + os.path.basename(filepath) + "\n" + \
         "[main]\n\n" + \
         "; Path to your Box sync dir. Use a relative path to place this dir\n" + \
