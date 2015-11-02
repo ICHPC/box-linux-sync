@@ -26,7 +26,7 @@ import ConfigParser
 from noiselabs.box import __prog__, __version__
 from noiselabs.box.utils import create_file
 
-BASEDIR = os.path.expanduser('~/.noiselabs/box')
+BASEDIR = os.path.expanduser('~/.box/box')
 
 class BoxConfig(object):
     """
@@ -72,11 +72,13 @@ class BoxConfig(object):
         return True        
 
     def write_default_config(self, filepath):
+        import os
+        username = os.getlogin()
         data = "; " + os.path.basename(filepath) + "\n" + \
         "[main]\n\n" + \
         "; Path to your Box sync dir. Use a relative path to place this dir\n" + \
         "; inside $HOME or an absolute path. Default: Box\n" + \
-        "box_dir = Box\n\n" + \
+        "box_dir = /box/" + username + "\n\n" + \
         "; Wether to use a WebDAV filesystem to synchronize your local and\n" + \
         "; remote files. Default: true\n" + \
         "use_davfs = true\n"

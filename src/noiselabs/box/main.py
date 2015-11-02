@@ -53,7 +53,7 @@ def box_main(args=None):
 
     force_help = "forces the execution of every procedure even if the component " +\
     "is already installed and/or configured"
-    log_help = "log output to ~/.noiselabs/box/box-sync.log"
+    log_help = "log output to ~/.box/box/box-sync.log"
 
     parser = NoiselabsOptionParser(
         usage=usage,
